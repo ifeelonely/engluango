@@ -1,0 +1,20 @@
+.sideBarInnerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.dictionaryInner {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+  gap: .5rem;
+  height: 100%;
+}

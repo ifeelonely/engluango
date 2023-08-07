@@ -1,0 +1,14 @@
+.customBtn {
+  background-color: var(--main-purple);
+  color: var(--main-white);
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.customBtn:hover {
+  cursor: pointer;
+}

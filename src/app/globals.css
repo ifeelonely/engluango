@@ -2,26 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+*, 
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  font-size: 62.5%;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 1.6rem;
+}
+
+:root {
+  --main-white: #ffffff;
+  --main-purple: #2b2e61;
+  --main-yellow: #fec400;
+  --main-blue: #184c92;
+  --main-grey: #d5d5d5;
+  --second-purple: #5d30c1;
+  --second-grey: #e7e9ef;
+
+  --font-black: #292929;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: .5rem 1rem;
+}
+
+.main-content {
+  display: flex;
+  padding: 0 3rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  line-height: 1;
 }

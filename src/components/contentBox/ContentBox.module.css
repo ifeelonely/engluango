@@ -1,0 +1,13 @@
+.contentBox {
+  background-color: var(--second-grey);
+  border-radius: 1rem;
+  color: var(--main-purple);
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
+
+.contentBoxInner {
+  padding: 1rem;
+  height: 100%;
+}

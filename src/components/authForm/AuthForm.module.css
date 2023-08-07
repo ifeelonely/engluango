@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 40rem;
+
+  border: 2px solid var(--main-purple);
+  border-radius: 1rem;
+}
+
+.formTitle {
+  text-align: center;
+}

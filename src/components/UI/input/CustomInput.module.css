@@ -1,0 +1,9 @@
+.customInput {
+  padding: 1rem;
+
+  color: var(--main-black);
+  font-size: 1.2rem;
+  outline: none;
+  border: 1px solid var(--main-purple);
+  border-radius: 10rem;
+}

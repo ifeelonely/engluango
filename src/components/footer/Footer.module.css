@@ -1,0 +1,25 @@
+.footer {
+  padding: 1rem 2rem;
+  margin: .7rem;
+  border-radius: 10rem;
+
+  background-color: var(--main-purple);
+  color: var(--main-white);
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerLearn {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.footerAbout {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}

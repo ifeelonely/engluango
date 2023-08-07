@@ -1,0 +1,14 @@
+.text {
+  display: block;
+}
+
+.navOption {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.home {
+  height: 100%;
+  font-size: 1.5rem;
+}

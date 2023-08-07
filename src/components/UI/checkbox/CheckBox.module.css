@@ -1,0 +1,29 @@
+.checkBoxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkBoxInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--main-grey);
+  width: 1.8rem;
+  height: 1.8rem;
+
+  border-radius: .5rem;
+}
+
+.checkBoxInput:hover {
+  cursor: pointer;
+}
+
+.checked {
+  color: var(--main-purple);
+}
+
+.checkLabel {
+  cursor: pointer;
+}

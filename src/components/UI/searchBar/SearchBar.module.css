@@ -1,0 +1,20 @@
+.searchBar {
+  border-radius: 10rem;
+  padding: .5rem 0;
+  outline: none;
+  border: none;
+}
+
+.searchBarWrapper {
+  padding: 0 0 0 .5rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background-color: var(--main-white);
+  border-radius: 10rem;
+  color: var(--main-purple);
+}
+
+.searchBarIcon {
+  font-size: 2rem;
+}

@@ -1,0 +1,33 @@
+.swapCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 30rem; 
+  gap: 1rem;
+}
+
+.cardSides {
+  position: relative;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  height: 20rem;
+  width: 100%;
+}
+
+.side {
+  position: absolute;
+  backface-visibility: hidden;
+  height: 20rem;
+  width: 100%;
+}
+
+.rotated {
+  transform: rotateY(180deg);
+  transition: .5s linear;
+}
+
+.notRotated {
+  transform: rotateY(0deg);
+  transition: .5s linear;
+}
