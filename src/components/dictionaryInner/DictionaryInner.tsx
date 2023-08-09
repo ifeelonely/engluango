@@ -7,18 +7,23 @@ import { dictionaryAPI } from '@/services/DictionaryService';
 import { CustomButton } from '../UI/button/CustomButton';
 import ContentBox from '../contentBox/ContentBox';
 import WordInfo from '../wordInfo/WordInfo';
+import LoadingSpinner from '../UI/loadingSpinner/LoadingSpinner';
 
 const DictionaryInner = (): JSX.Element => {
   const [wordInputQuery, setWordInputQuery] = useState<string>('');
-  const [trigger, { data }] = dictionaryAPI.useLazyFetchWordQuery();
+
+  const [trigger, { data, isFetching }] = dictionaryAPI.useLazyFetchWordQuery();
 
   const handleOnInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setWordInputQuery(e.target.value);
 
-    console.log(data);
   const handleOnWordSearch = (e: SyntheticEvent) => {
     e.preventDefault();
-    trigger(wordInputQuery, true);
+    try {
+      trigger(wordInputQuery, true);
+    } catch (error) {
+    } finally {
+    }
   };
 
   return (
@@ -40,7 +45,7 @@ const DictionaryInner = (): JSX.Element => {
           <h2>Previous words:</h2>
         </div>
       </SideBar>
-      {data ? (
+      {data && !isFetching ? (
         <WordInfo wordInfo={data} />
       ) : (
         <ContentBox>
@@ -52,7 +57,13 @@ const DictionaryInner = (): JSX.Element => {
               height: '100%',
             }}
           >
-            <h2 style={{ fontSize: '2rem' }}>Looking for something special?</h2>
+            {isFetching ? (
+              <LoadingSpinner />
+            ) : (
+              <h2 style={{ fontSize: '2rem' }}>
+                Looking for something special?
+              </h2>
+            )}
           </div>
         </ContentBox>
       )}

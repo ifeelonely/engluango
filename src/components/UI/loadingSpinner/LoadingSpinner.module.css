@@ -1,0 +1,15 @@
+.loadingSpinner {
+  font-size: 10rem;
+  animation: 3s rotateSpinner linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotateSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(360deg);
+  }
+}

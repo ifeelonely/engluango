@@ -7,12 +7,10 @@ import HorizontalBar from '../UI/horizontalBar/HorizontalBar';
 import WordMeaning from './wordMeaning/WordMeaning';
 
 const WordInfo = ({ wordInfo }: WordInfoProps): JSX.Element => {
-  console.log(wordInfo);
   const { word, phonetic, meanings } = wordInfo[0];
   const [firstMeaning] = meanings;
   const { partOfSpeech, definitions } = firstMeaning;
   const { definition, example = '' } = definitions[0];
-  console.log(meanings)
 
   return (
     <ContentBox>
@@ -29,10 +27,10 @@ const WordInfo = ({ wordInfo }: WordInfoProps): JSX.Element => {
       </div>
       <HorizontalBar />
       {meanings.map((meaning, indx) => (
-        <>
-          <WordMeaning key={indx} meaning={meaning} />
+        <div key={indx}>
+          <WordMeaning meaning={meaning} />
           <HorizontalBar />
-        </>
+        </div>
       ))}
     </ContentBox>
   );

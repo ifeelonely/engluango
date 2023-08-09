@@ -10,7 +10,7 @@ const WordMeaning = ({ meaning }: WordMeaningProps): JSX.Element => {
       <span>Part of speech: {meaning.partOfSpeech}</span>
       {meaning.definitions.map((definition, indx) => {
         return (
-          <div className={classes.wordDescription} key={definition.example}>
+          <div className={classes.wordDescription} key={definition.example + `${indx}`}>
             <span className={classes.wordText}>
               Definition: {definition.definition}
             </span>
