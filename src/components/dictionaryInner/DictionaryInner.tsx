@@ -12,18 +12,16 @@ import LoadingSpinner from '../UI/loadingSpinner/LoadingSpinner';
 const DictionaryInner = (): JSX.Element => {
   const [wordInputQuery, setWordInputQuery] = useState<string>('');
 
-  const [trigger, { data, isFetching }] = dictionaryAPI.useLazyFetchWordQuery();
+  const [trigger, { data, isFetching, error }] =
+    dictionaryAPI.useLazyFetchWordQuery();
 
   const handleOnInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setWordInputQuery(e.target.value);
 
   const handleOnWordSearch = (e: SyntheticEvent) => {
     e.preventDefault();
-    try {
-      trigger(wordInputQuery, true);
-    } catch (error) {
-    } finally {
-    }
+
+    trigger(wordInputQuery, true);
   };
 
   return (
@@ -45,7 +43,7 @@ const DictionaryInner = (): JSX.Element => {
           <h2>Previous words:</h2>
         </div>
       </SideBar>
-      {data && !isFetching ? (
+      {data && !isFetching && !error ? (
         <WordInfo wordInfo={data} />
       ) : (
         <ContentBox>
@@ -61,7 +59,9 @@ const DictionaryInner = (): JSX.Element => {
               <LoadingSpinner />
             ) : (
               <h2 style={{ fontSize: '2rem' }}>
-                Looking for something special?
+                {error
+                  ? 'Oops, something went wrong!'
+                  : 'Looking for something special?'}
               </h2>
             )}
           </div>

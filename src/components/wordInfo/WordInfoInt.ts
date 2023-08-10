@@ -5,7 +5,7 @@ export interface WordInfoProps {
 interface WordProperties {
   word: string;
   phonetic: string;
-  phonetics: [];
+  phonetics: Phonetic[];
   meanings: Meaning[];
   sourceUrls: [];
   license: {};
@@ -21,4 +21,9 @@ export interface Meaning {
 interface Definition {
   definition: string;
   example: string;
+}
+
+interface Phonetic {
+  text: string;
+  audio: string;
 }

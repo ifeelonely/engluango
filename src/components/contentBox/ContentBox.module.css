@@ -11,3 +11,18 @@
   padding: 1rem;
   height: 100%;
 }
+
+.contentBox::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.contentBox::-webkit-scrollbar-track {
+  background: transparent;  
+}
+
+.contentBox::-webkit-scrollbar-thumb {
+  background-color: var(--main-grey);    
+  border-radius: 10rem;    
+  background-clip: content-box;
+}
+

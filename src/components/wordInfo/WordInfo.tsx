@@ -3,14 +3,15 @@ import ContentBox from '../contentBox/ContentBox';
 import { WordInfoProps } from './WordInfoInt';
 import classes from './WordInfo.module.css';
 import { AiTwotoneSound } from 'react-icons/ai';
+import { GiSoundOff } from 'react-icons/gi';
 import HorizontalBar from '../UI/horizontalBar/HorizontalBar';
 import WordMeaning from './wordMeaning/WordMeaning';
+import useSound from 'use-sound';
 
 const WordInfo = ({ wordInfo }: WordInfoProps): JSX.Element => {
-  const { word, phonetic, meanings } = wordInfo[0];
-  const [firstMeaning] = meanings;
-  const { partOfSpeech, definitions } = firstMeaning;
-  const { definition, example = '' } = definitions[0];
+  const { word, phonetic, meanings, phonetics } = wordInfo[0];
+  const { audio } = phonetics[0];
+  const [playSound] = useSound(audio);
 
   return (
     <ContentBox>
@@ -21,7 +22,17 @@ const WordInfo = ({ wordInfo }: WordInfoProps): JSX.Element => {
         <div>
           <span>Pronunciation: {phonetic}, </span>
           <span>
-            <AiTwotoneSound className={classes.soundIcon} />
+            {audio ? (
+              <AiTwotoneSound
+                className={classes.soundIcon}
+                onClick={() => playSound()}
+              />
+            ) : (
+              <span>
+                <GiSoundOff className={classes.soundIcon} />
+                <span>{'(No sound was found)'}</span>
+              </span>
+            )}
           </span>
         </div>
       </div>
