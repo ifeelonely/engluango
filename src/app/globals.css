@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *:before,
 *:after {
@@ -22,6 +26,7 @@ body {
   --main-grey: #d5d5d5;
   --second-purple: #5d30c1;
   --second-grey: #e7e9ef;
+  --third-grey: #dddee1;
 
   --font-black: #292929;
 }

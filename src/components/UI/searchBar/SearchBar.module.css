@@ -1,4 +1,5 @@
 .searchBar {
+  width: 100%;
   border-radius: 10rem;
   padding: .5rem 0;
   outline: none;
@@ -18,3 +19,4 @@
 .searchBarIcon {
   font-size: 2rem;
 }
+

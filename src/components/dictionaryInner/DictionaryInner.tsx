@@ -8,10 +8,17 @@ import { CustomButton } from '../UI/button/CustomButton';
 import ContentBox from '../contentBox/ContentBox';
 import WordInfo from '../wordInfo/WordInfo';
 import LoadingSpinner from '../UI/loadingSpinner/LoadingSpinner';
+import {
+  getPreviousWords,
+  setNewPreviousWord,
+} from '@/helpers/EditPreviousWordsLocalStorage';
+import PreviousWordsList from '../previousWordsList/PreviousWordsList';
 
 const DictionaryInner = (): JSX.Element => {
   const [wordInputQuery, setWordInputQuery] = useState<string>('');
-
+  const [previousWords, setPreviousWords] = useState<string[]>(
+    getPreviousWords()
+  );
   const [trigger, { data, isFetching, error }] =
     dictionaryAPI.useLazyFetchWordQuery();
 
@@ -22,8 +29,10 @@ const DictionaryInner = (): JSX.Element => {
     e.preventDefault();
 
     trigger(wordInputQuery, true);
+    setNewPreviousWord(wordInputQuery);
+    setPreviousWords(getPreviousWords());
   };
-
+  
   return (
     <section className={classes.dictionaryInner}>
       <SideBar>
@@ -41,6 +50,7 @@ const DictionaryInner = (): JSX.Element => {
             <CustomButton text="Look up!" onClick={handleOnWordSearch} />
           </form>
           <h2>Previous words:</h2>
+          <PreviousWordsList previousWords={previousWords} />
         </div>
       </SideBar>
       {data && !isFetching && !error ? (
