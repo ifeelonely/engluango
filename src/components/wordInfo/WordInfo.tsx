@@ -10,7 +10,7 @@ import useSound from 'use-sound';
 
 const WordInfo = ({ wordInfo }: WordInfoProps): JSX.Element => {
   const { word, phonetic, meanings, phonetics } = wordInfo[0];
-  const { audio } = phonetics[0];
+  const { audio } = phonetics[0] ? phonetics[0] : { audio: '' };
   const [playSound] = useSound(audio);
 
   return (

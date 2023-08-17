@@ -1,5 +1,5 @@
 'use client';
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import SideBar from '../sideBar/SideBar';
 import SearchBar from '../UI/searchBar/SearchBar';
 import classes from './DictionaryInner.module.css';
@@ -25,6 +25,9 @@ const DictionaryInner = (): JSX.Element => {
   const handleOnInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setWordInputQuery(e.target.value);
 
+  const handlePreviousWordSearch = (prevWord: string) =>
+    setWordInputQuery((word) => prevWord);
+
   const handleOnWordSearch = (e: SyntheticEvent) => {
     e.preventDefault();
 
@@ -32,7 +35,7 @@ const DictionaryInner = (): JSX.Element => {
     setNewPreviousWord(wordInputQuery);
     setPreviousWords(getPreviousWords());
   };
-  
+
   return (
     <section className={classes.dictionaryInner}>
       <SideBar>
@@ -50,7 +53,10 @@ const DictionaryInner = (): JSX.Element => {
             <CustomButton text="Look up!" onClick={handleOnWordSearch} />
           </form>
           <h2>Previous words:</h2>
-          <PreviousWordsList previousWords={previousWords} />
+          <PreviousWordsList
+            previousWords={previousWords}
+            onPrevWordSearch={handlePreviousWordSearch}
+          />
         </div>
       </SideBar>
       {data && !isFetching && !error ? (

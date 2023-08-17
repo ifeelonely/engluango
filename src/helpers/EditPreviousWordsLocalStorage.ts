@@ -5,6 +5,7 @@ export const getPreviousWords = () => {
 
 export const setNewPreviousWord = (newWord: string) => {
   const previousWords = getPreviousWords() || [];
+  if(previousWords.includes(newWord)) return;
   if (previousWords.length >= 10) {
     previousWords.pop();
     previousWords.unshift(newWord);
