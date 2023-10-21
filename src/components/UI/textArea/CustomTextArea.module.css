@@ -1,0 +1,11 @@
+.customTextArea {
+  border-radius: .5rem;
+  padding: 1rem;
+  resize: none;
+  width: 100%;
+  transition: .1s linear;
+}
+
+.customTextArea:focus {
+  border-bottom: .5rem solid var(--main-purple);
+}

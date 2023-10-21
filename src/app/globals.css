@@ -29,6 +29,8 @@ body {
   --third-grey: #dddee1;
 
   --font-black: #292929;
+
+  --light-blue: #f6f7fb;
 }
 
 .App {
@@ -41,12 +43,12 @@ body {
 }
 
 .main-content {
-  display: flex;
   padding: 0 3rem;
-  justify-content: space-between;
-  align-items: center;
   height: 100%;
   overflow: hidden;
+
+  background-color: var(--light-blue);
+  border-radius: 1rem;
 }
 
 h1,

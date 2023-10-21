@@ -12,3 +12,8 @@
 .customBtn:hover {
   cursor: pointer;
 }
+
+.customBtn[disabled] {
+  cursor: not-allowed;
+  opacity: .5;
+}
