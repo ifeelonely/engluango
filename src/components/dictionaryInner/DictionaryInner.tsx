@@ -28,7 +28,7 @@ const DictionaryInner = (): JSX.Element => {
   const handlePreviousWordSearch = (prevWord: string) =>
     setWordInputQuery((word) => prevWord);
 
-  const handleOnWordSearch = (e: SyntheticEvent) => {
+  const handleOnWordSearch = (e: any) => {
     e.preventDefault();
 
     trigger(wordInputQuery, true);

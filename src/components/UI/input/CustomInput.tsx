@@ -8,15 +8,16 @@ export function CustomInput({
   onChange,
   onBlur,
   styles,
+  customClasses
 }: CustomInputProps): JSX.Element {
   return (
     <input
       style={...styles}
-      className={classes.customInput}
+      className={`${classes.customInput} ${customClasses?.join(' ')}`}
       placeholder={placeholder}
       type={type}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={onChange}
       onBlur={() => (onBlur ? onBlur() : null)}
     />
   );

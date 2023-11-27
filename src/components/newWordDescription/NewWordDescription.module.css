@@ -1,0 +1,45 @@
+.newWord {
+  width: 100%;
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  animation: 1s ease-in appear;
+}
+
+.newWordHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--main-white);
+  padding: 1rem;
+}
+
+.newWordDescription {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--main-white);
+}
+
+.newWordInputs {
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 50rem;
+  border-bottom: 0.5rem solid var(--main-purple);
+}
+
+.newWordInputs:focus {
+  border-bottom: 0.5rem solid var(--main-purple);
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

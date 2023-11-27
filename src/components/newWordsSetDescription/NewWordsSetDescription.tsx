@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { CustomInput } from '../UI/input/CustomInput';
 import { CustomButton } from '../UI/button/CustomButton';
 import classes from './NewWordsSetDescription.module.css';
@@ -9,14 +9,28 @@ import {
   descriptionTextAreaStyle,
 } from './CustomStyles';
 import CustomTextArea from '../UI/textArea/CustomTextArea';
+import NewWordDesctiption from '../newWordDescription/NewWordDescription';
+import NewWordsDescriptionList from '../newWordsDesctiptionList/NewWordsDescriptionList';
+import { useAppDispatch, useAppSelector } from '@/store/Hooks';
+import newWordsSlice from '@/store/slices/newWordsSlice';
+import { setnumberOfNewWords, setIsSetCreated } from '@/store/slices/newWordsSlice';
 
 const NewWordsSetDescription = (): JSX.Element => {
   const [newSetName, setNewSetName] = useState<string>('');
   const [newSetDescription, setNewSetDescription] = useState<string>('');
   const [newSetStudyPlace, setNewSetStudyPlace] = useState<string>('');
   const [newSetSubject, setNewSetSubject] = useState<string>('');
+  const dispatch = useAppDispatch();
+  const { numberOfNewWords, cardsStates } = useAppSelector((state) => state.NewWordsSlice);
 
-  const handleOnCreate = () => console.log('create set');
+  const handleAddNewTerm = () => {
+    dispatch(setnumberOfNewWords(numberOfNewWords + 1));
+  };
+
+  const handleOnCreate = () => {
+    dispatch(setIsSetCreated())
+    console.log(cardsStates)
+  }
 
   return (
     <div className={classes.createSet}>
@@ -59,6 +73,8 @@ const NewWordsSetDescription = (): JSX.Element => {
           </div>
         </div>
       </div>
+      <NewWordsDescriptionList />
+      <CustomButton text="Add new term" onClick={handleAddNewTerm} />
     </div>
   );
 };

@@ -6,6 +6,7 @@ export interface CustomInputProps {
   type: string;
   value: string;
   onChange: any;
+  customClasses?: string[];
   onBlur?: any;
   styles?: any;
 }
