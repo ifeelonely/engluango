@@ -9,11 +9,10 @@ import {
   descriptionTextAreaStyle,
 } from './CustomStyles';
 import CustomTextArea from '../UI/textArea/CustomTextArea';
-import NewWordDesctiption from '../newWordDescription/NewWordDescription';
 import NewWordsDescriptionList from '../newWordsDesctiptionList/NewWordsDescriptionList';
 import { useAppDispatch, useAppSelector } from '@/store/Hooks';
-import newWordsSlice from '@/store/slices/newWordsSlice';
-import { setnumberOfNewWords, setIsSetCreated } from '@/store/slices/newWordsSlice';
+import { addNewCard, setIsSetCreated } from '@/store/slices/newSetSlice';
+import { useRouter } from 'next/navigation';
 
 const NewWordsSetDescription = (): JSX.Element => {
   const [newSetName, setNewSetName] = useState<string>('');
@@ -21,16 +20,15 @@ const NewWordsSetDescription = (): JSX.Element => {
   const [newSetStudyPlace, setNewSetStudyPlace] = useState<string>('');
   const [newSetSubject, setNewSetSubject] = useState<string>('');
   const dispatch = useAppDispatch();
-  const { numberOfNewWords, cardsStates } = useAppSelector((state) => state.NewWordsSlice);
-
+  const router = useRouter();
   const handleAddNewTerm = () => {
-    dispatch(setnumberOfNewWords(numberOfNewWords + 1));
+    dispatch(addNewCard({ newWordTerm: '', definition: '' }));
   };
 
   const handleOnCreate = () => {
-    dispatch(setIsSetCreated())
-    console.log(cardsStates)
-  }
+    dispatch(setIsSetCreated(true));
+     router.push('/userSets/userExistingSets')
+  };
 
   return (
     <div className={classes.createSet}>

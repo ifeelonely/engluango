@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import UserAuthSlice from './slices/userAuthSlice';
-import NewWordsSlice from './slices/newWordsSlice';
+import NewSetSlice from './slices/newSetSlice';
 import { dictionaryAPI } from '@/services/DictionaryService';
 
 const rooteReducer = combineReducers({
   UserAuthSlice,
-  NewWordsSlice,
+  NewSetSlice,
   [dictionaryAPI.reducerPath]: dictionaryAPI.reducer,
 });
 

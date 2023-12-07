@@ -16,7 +16,6 @@ const Header = (): JSX.Element => {
           <SiWolframlanguage className={classes.headerLogo} />
           <h2>Engluango</h2>
         </div>
-        <SearchBar />
         <div className={classes.headerLinks}>
           {headerLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);

@@ -1,17 +1,18 @@
+
 import { useEffect, useState } from 'react';
 import { CustomInput } from '../UI/input/CustomInput';
 import classes from './NewWordDescription.module.css';
 import { NewWordDescriptionProps } from './NewWordDescriptionInt';
 import { useAppDispatch, useAppSelector } from '@/store/Hooks';
-import { setIsSetCreated, addNewCard } from '@/store/slices/newWordsSlice';
+import { setIsSetCreated, addNewCard } from '@/store/slices/newSetSlice';
+import { useRouter } from 'next/router';
 
 const NewWordDescription = ({
   wordNumber,
-}: NewWordDescriptionProps): JSX.Element => {
+}: NewWordDescriptionProps): JSX.Element => { 
   const [newWordTerm, setNewWordTerm] = useState<string>('');
   const [newWordDefinition, setNewWordDefinition] = useState<string>('');
-
-  const { isSetCreated } = useAppSelector((state) => state.NewWordsSlice);
+  const { isSetCreated } = useAppSelector((state) => state.NewSetSlice);
   const dispatch = useAppDispatch();
 
   const handleOnTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,10 +26,9 @@ const NewWordDescription = ({
   useEffect(() => {
     if (isSetCreated) {
       dispatch(addNewCard({ newWordTerm, definition: newWordDefinition }));
-      dispatch(setIsSetCreated());
+      dispatch(setIsSetCreated(false));
     }
   }, [isSetCreated]);
-
 
   return (
     <div className={classes.newWord}>
