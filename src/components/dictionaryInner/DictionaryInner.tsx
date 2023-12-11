@@ -16,9 +16,7 @@ import PreviousWordsList from '../previousWordsList/PreviousWordsList';
 
 const DictionaryInner = (): JSX.Element => {
   const [wordInputQuery, setWordInputQuery] = useState<string>('');
-  const [previousWords, setPreviousWords] = useState<string[]>(
-    getPreviousWords()
-  );
+  const [previousWords, setPreviousWords] = useState<string[]>([]);
   const [trigger, { data, isFetching, error }] =
     dictionaryAPI.useLazyFetchWordQuery();
 
@@ -35,6 +33,10 @@ const DictionaryInner = (): JSX.Element => {
     setNewPreviousWord(wordInputQuery);
     setPreviousWords(getPreviousWords());
   };
+
+  useEffect(() => {
+    setPreviousWords(getPreviousWords());
+  }, []);
 
   return (
     <section className={classes.dictionaryInner}>
