@@ -1,5 +1,5 @@
-import { AuthForm } from '@/components/authForm/AuthForm';
-import SwapCard from '@/components/swapCard/SwapCard';
+import { AuthForm } from '@/app/auth/components/authForm/AuthForm';
+import SwapCard from '@/components/UI/swapCard/SwapCard';
 import classes from './Page.module.css';
 
 const page = (): JSX.Element => {

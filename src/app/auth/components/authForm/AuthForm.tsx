@@ -1,9 +1,9 @@
 'use client';
-import { CustomButton } from '../UI/button/CustomButton';
-import { CustomInput } from '../UI/input/CustomInput';
+import { CustomButton } from '../../../../components/UI/button/CustomButton';
+import { CustomInput } from '../../../../components/UI/input/CustomInput';
 import { AuthFormProps } from './AuthFormInt';
 import classes from './AuthForm.module.css';
-import CheckBoxInt from '../UI/checkbox/CheckBox';
+import CheckBoxInt from '../../../../components/UI/checkbox/CheckBox';
 import { useAppSelector, useAppDispatch } from '@/store/Hooks';
 import { setEmail, setPassword } from '@/store/slices/userAuthSlice';
 import { useValidation } from '@/hooks/useFormValidation/useValidation';

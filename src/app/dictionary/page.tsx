@@ -1,5 +1,5 @@
 'use client';
-import DictionaryInner from '@/components/dictionaryInner/DictionaryInner';
+import DictionaryInner from '@/app/dictionary/components/dictionaryInner/DictionaryInner';
 
 import React from 'react';
 import classes from './Page.module.css';

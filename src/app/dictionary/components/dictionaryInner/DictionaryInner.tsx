@@ -1,13 +1,13 @@
 'use client';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
-import SideBar from '../sideBar/SideBar';
-import SearchBar from '../UI/searchBar/SearchBar';
+import SideBar from '../../../../components/sideBar/SideBar';
+import SearchBar from '../../../../components/UI/searchBar/SearchBar';
 import classes from './DictionaryInner.module.css';
 import { dictionaryAPI } from '@/services/DictionaryService';
-import { CustomButton } from '../UI/button/CustomButton';
-import ContentBox from '../contentBox/ContentBox';
+import { CustomButton } from '../../../../components/UI/button/CustomButton';
+import ContentBox from '../../../../components/contentBox/ContentBox';
 import WordInfo from '../wordInfo/WordInfo';
-import LoadingSpinner from '../UI/loadingSpinner/LoadingSpinner';
+import LoadingSpinner from '../../../../components/UI/loadingSpinner/LoadingSpinner';
 import {
   getPreviousWords,
   setNewPreviousWord,
@@ -26,7 +26,7 @@ const DictionaryInner = (): JSX.Element => {
   const handlePreviousWordSearch = (prevWord: string) =>
     setWordInputQuery((word) => prevWord);
 
-  const handleOnWordSearch = (e: any) => {
+  const handleOnWordSearch = (e) => {
     e.preventDefault();
 
     trigger(wordInputQuery, true);

@@ -1,10 +1,10 @@
 import React from 'react';
-import ContentBox from '../contentBox/ContentBox';
+import ContentBox from '../../../../components/contentBox/ContentBox';
 import { WordInfoProps } from './WordInfoInt';
 import classes from './WordInfo.module.css';
 import { AiTwotoneSound } from 'react-icons/ai';
 import { GiSoundOff } from 'react-icons/gi';
-import HorizontalBar from '../UI/horizontalBar/HorizontalBar';
+import HorizontalBar from '../../../../components/UI/horizontalBar/HorizontalBar';
 import WordMeaning from './wordMeaning/WordMeaning';
 import useSound from 'use-sound';
 

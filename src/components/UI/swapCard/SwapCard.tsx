@@ -1,6 +1,6 @@
 'use client';
 import { useState, useCallback } from 'react';
-import ToggleBtn from '../UI/toggleBtn/ToggleBtn';
+import ToggleBtn from '../toggleBtn/ToggleBtn';
 import classes from './SwapCard.module.css';
 import { SwapCardProps } from './SwapCardInt';
 
