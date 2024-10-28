@@ -5,12 +5,11 @@ export function CustomButton({
   text,
   onClick,
   disable,
-  styles
+  styles,
 }: CustomButtonProps): JSX.Element {
-  
   return (
     <button
-      style={...styles}
+      style={{ ...styles }}
       disabled={disable}
       className={classes.customBtn}
       type="button"

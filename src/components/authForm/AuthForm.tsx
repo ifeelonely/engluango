@@ -7,7 +7,6 @@ import CheckBoxInt from '../UI/checkbox/CheckBox';
 import { useAppSelector, useAppDispatch } from '@/store/Hooks';
 import { setEmail, setPassword } from '@/store/slices/userAuthSlice';
 import { useValidation } from '@/hooks/useFormValidation/useValidation';
-import { useMemo } from 'react';
 
 export function AuthForm({ authType }: AuthFormProps): JSX.Element {
   const signType: string = authType === 'signIn' ? 'Sign In' : 'Sign Up';

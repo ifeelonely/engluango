@@ -4,5 +4,5 @@ export interface CustomButtonProps {
   text: string;
   onClick: (e?: SyntheticEvent) => void;
   disable?: boolean;
-  styles?: any;
+  styles?: React.CSSProperties;
 }
