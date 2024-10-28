@@ -24,10 +24,12 @@ const DictionaryInner = (): JSX.Element => {
     setWordInputQuery(e.target.value);
 
   const handlePreviousWordSearch = (prevWord: string) =>
-    setWordInputQuery((word) => prevWord);
+    setWordInputQuery(() => prevWord);
 
-  const handleOnWordSearch = (e) => {
-    e.preventDefault();
+  const handleOnWordSearch = (
+    e: SyntheticEvent<Element, Event> | undefined
+  ) => {
+    if (e) e.preventDefault();
 
     trigger(wordInputQuery, true);
     setNewPreviousWord(wordInputQuery);
