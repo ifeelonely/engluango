@@ -2,7 +2,7 @@ import Header from '@/components/header/Header';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/footer/Footer';
-import { AuthForm } from '@/components/authForm/AuthForm';
+import { AuthForm } from '@/app/auth/components/authForm/AuthForm';
 import { Providers } from '../store/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
